@@ -171,9 +171,8 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(500px, 80vw);
-  height: min(500px, 80vw);
-  animation: sigil-rotate 120s linear infinite;
+  width: min(550px, 85vw);
+  height: min(550px, 85vw);
   pointer-events: none;
 }
 
@@ -182,9 +181,39 @@ nav {
   height: 100%;
 }
 
-@keyframes sigil-rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+/* Multi-layer rotation matching the Bibliomancy app */
+.sigil-outer {
+  transform-origin: 200px 200px;
+  animation: sigil-cw 20s linear infinite;
+}
+.sigil-middle {
+  transform-origin: 200px 200px;
+  animation: sigil-ccw 12s linear infinite;
+}
+.sigil-inner {
+  transform-origin: 200px 200px;
+  animation: sigil-cw 8s linear infinite;
+}
+.sigil-seed {
+  transform-origin: 200px 200px;
+  animation: sigil-cw 16s linear infinite;
+}
+.sigil-particles-inner {
+  transform-origin: 200px 200px;
+  animation: sigil-cw 5s linear infinite;
+}
+.sigil-particles-outer {
+  transform-origin: 200px 200px;
+  animation: sigil-ccw 7s linear infinite;
+}
+
+@keyframes sigil-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes sigil-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
 .hero-badge {
