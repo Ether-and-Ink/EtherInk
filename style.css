@@ -166,19 +166,83 @@ nav {
   position: relative;
 }
 
+/* Sigil container — title sits centered inside this */
 .oracle-sigil {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(550px, 85vw);
-  height: min(550px, 85vw);
+  position: relative;
+  width: min(500px, 80vw);
+  height: min(500px, 80vw);
   pointer-events: none;
+  flex-shrink: 0;
 }
 
 .oracle-sigil svg {
   width: 100%;
   height: 100%;
+  opacity: 0.45;
+}
+
+/* Title overlaid in the center of the sigil */
+.hero-title-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.hero h1 .ampersand {
+  color: var(--purple);
+  font-style: italic;
+}
+
+/* Badge + tagline below the sigil */
+.hero-below {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid var(--purple-border);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--purple-glow);
+  background: var(--purple-subtle);
+  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero .tagline {
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  color: var(--gray);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--purple), transparent);
+  margin: 0 auto;
 }
 
 /* Multi-layer rotation matching the Bibliomancy app */
@@ -214,56 +278,6 @@ nav {
 @keyframes sigil-ccw {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
-}
-
-.hero-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  border: 1px solid var(--purple-border);
-  border-radius: 100px;
-  font-size: 0.8rem;
-  color: var(--purple-glow);
-  background: var(--purple-subtle);
-  margin-bottom: 32px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 .ampersand {
-  color: var(--purple);
-  font-style: italic;
-}
-
-.hero .tagline {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  color: var(--gray);
-  max-width: 560px;
-  margin: 0 auto 48px;
-  font-weight: 400;
-  line-height: 1.5;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-divider {
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--purple), transparent);
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
 /* ── Section Headers ────────────────────────────────────── */
@@ -867,7 +881,11 @@ footer {
   }
 
   .oracle-sigil {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-below {
+    margin-top: 20px;
   }
 }

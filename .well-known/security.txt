@@ -1,0 +1,5 @@
+Contact: mailto:admin@etherink.net
+Preferred-Languages: en
+Canonical: https://etherink.net/.well-known/security.txt
+Policy: https://etherink.net/privacy.html
+Expires: 2027-04-10T00:00:00.000Z

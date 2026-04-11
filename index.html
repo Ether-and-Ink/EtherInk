@@ -8,6 +8,10 @@
     <meta property="og:title" content="Ether & Ink — Ideas Made Real">
     <meta property="og:description" content="An indie studio turning bold ideas into magical digital experiences.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://etherink.net/">
+    <meta property="og:image" content="https://etherink.net/assets/bibliomancy-screenshot.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://etherink.net/">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2728;</text></svg>">
@@ -186,12 +190,18 @@
                         </g>
                     </g>
                 </svg>
+                <!-- Title centered inside the sigil -->
+                <div class="hero-title-wrap">
+                    <h1>Ether <span class="ampersand">&</span> Ink</h1>
+                </div>
             </div>
 
-            <div class="hero-badge">Indie Software Studio</div>
-            <h1>Ether <span class="ampersand">&</span> Ink</h1>
-            <p class="tagline">The spark of an idea and the craft to make it real. We build magical digital experiences that bring people together.</p>
-            <div class="hero-divider"></div>
+            <!-- Badge + tagline below the sigil -->
+            <div class="hero-below">
+                <div class="hero-badge">Indie Software Studio</div>
+                <p class="tagline">The spark of an idea and the craft to make it real. We build magical digital experiences that bring people together.</p>
+                <div class="hero-divider"></div>
+            </div>
         </section>
 
         <!-- About: The Name -->
@@ -264,7 +274,7 @@
                 <div class="app-card">
                     <div class="app-badge">Coming Soon</div>
                     <div class="app-screenshot-wrap">
-                        <img src="assets/bibliomancy-screenshot.png" alt="Bibliomancy app screenshot showing the Oracle spell interface" class="app-screenshot">
+                        <img src="assets/bibliomancy-screenshot.jpg" alt="Bibliomancy app screenshot showing the Oracle spell interface" class="app-screenshot">
                     </div>
                     <h3>Bibliomancy</h3>
                     <p class="app-subtitle">Discover Your Next Read</p>
@@ -381,6 +391,25 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ether & Ink",
+        "legalName": "Ether & Ink LLC",
+        "url": "https://etherink.net",
+        "description": "An indie software studio that builds magical digital experiences. Founded by a solo developer with a love for books, imagination, and craft.",
+        "email": "admin@etherink.net",
+        "foundingDate": "2026",
+        "numberOfEmployees": "1",
+        "knowsAbout": ["Mobile App Development", "iOS Development", "Android Development", "Web Development", "Book Technology"],
+        "sameAs": [
+            "https://github.com/Ether-and-Ink"
+        ]
+    }
+    </script>
 
 </body>
 </html>
