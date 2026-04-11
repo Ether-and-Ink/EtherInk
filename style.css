@@ -178,7 +178,7 @@ nav {
 .oracle-sigil svg {
   width: 100%;
   height: 100%;
-  opacity: 0.45;
+  opacity: 0.7;
 }
 
 /* Title overlaid in the center of the sigil */
@@ -437,41 +437,14 @@ nav {
   line-height: 1.6;
 }
 
-/* ── Apps Grid ──────────────────────────────────────────── */
-.apps-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: stretch;
+/* ── App Showcase ────────────────────────────────────────── */
+.app-showcase {
+  margin-bottom: 80px;
 }
 
-.app-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 48px 36px;
+.app-showcase-header {
   text-align: center;
-  transition: border-color 0.3s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.app-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--purple), transparent);
-}
-
-.app-card:hover {
-  border-color: var(--purple-border);
-  transform: translateY(-4px);
+  margin-bottom: 40px;
 }
 
 .app-badge {
@@ -482,61 +455,91 @@ nav {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   background: var(--purple-subtle);
   color: var(--purple-glow);
   border: 1px solid var(--purple-border);
-  align-self: center;
 }
 
-.app-screenshot-wrap {
-  height: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 32px;
-  flex-shrink: 0;
-}
-
-.app-screenshot {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  border-radius: 16px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.05),
-    0 20px 60px rgba(0,0,0,0.5),
-    0 0 40px rgba(124, 58, 237, 0.08);
-  transition: transform 0.3s;
-  object-fit: contain;
-}
-
-.app-card:hover .app-screenshot {
-  transform: scale(1.02);
-}
-
-.app-card h3 {
-  font-size: 1.6rem;
+.app-showcase-header h3 {
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   letter-spacing: -0.01em;
 }
 
-.app-card .app-subtitle {
-  font-size: 1rem;
+.app-showcase-header .app-subtitle {
+  font-size: 1.05rem;
   color: var(--gray);
   font-style: italic;
   margin-bottom: 16px;
 }
 
-.app-card .app-desc {
+.app-showcase-header .app-desc {
   color: var(--light);
   font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 340px;
+  max-width: 520px;
   margin: 0 auto;
-  flex-grow: 1;
+}
+
+/* ── Horizontal Slider ──────────────────────────────────── */
+.app-slider-wrap {
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+
+.app-slider {
+  overflow: hidden;
+}
+
+.app-slider-track {
+  display: flex;
+  gap: 24px;
+  animation: slider-scroll 60s linear infinite;
+  width: max-content;
+}
+
+.app-slider-track img {
+  height: 420px;
+  width: auto;
+  border-radius: 16px;
+  flex-shrink: 0;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 16px 48px rgba(0,0,0,0.4),
+    0 0 30px rgba(124, 58, 237, 0.06);
+}
+
+@keyframes slider-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.app-slider-wrap:hover .app-slider-track {
+  animation-play-state: paused;
+}
+
+/* ── Single Screenshot (Lore Night) ─────────────────────── */
+.app-showcase-single {
+  margin-bottom: 0;
+}
+
+.app-single-screenshot {
+  text-align: center;
+}
+
+.app-single-screenshot img {
+  height: 420px;
+  width: auto;
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 16px 48px rgba(0,0,0,0.4),
+    0 0 30px rgba(124, 58, 237, 0.06);
 }
 
 /* ── Contact Block ───────────────────────────────────────── */
@@ -828,17 +831,9 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .apps-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .app-card {
-    padding: 36px 24px;
-  }
-
-  .app-screenshot-wrap {
-    height: 300px;
+  .app-slider-track img,
+  .app-single-screenshot img {
+    height: 340px;
   }
 
   .contact-details {
@@ -876,8 +871,9 @@ footer {
     font-size: 1.8rem;
   }
 
-  .app-screenshot-wrap {
-    height: 260px;
+  .app-slider-track img,
+  .app-single-screenshot img {
+    height: 280px;
   }
 
   .oracle-sigil {
