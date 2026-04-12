@@ -89,11 +89,15 @@
 
             <p>Note: When you change a book's reading status, we share only the book's title and author with our community catalog. Your specific reading activity is NEVER publicly linked to your identity &mdash; we only store anonymous aggregate counts.</p>
 
-            <p><strong>Device Permissions (Bibliomancy):</strong> All device permissions are optional. You can deny or revoke any of them in your device settings; only the related feature will be affected.</p>
+            <p><strong>Device Permissions (Bibliomancy):</strong> All device permissions are optional. You can deny or revoke any of them in your device settings; only the related feature will be affected. Some permissions are platform-specific (iOS or Android only).</p>
             <ul>
                 <li><strong>Camera:</strong> Used solely to scan book barcodes (ISBNs) when adding books to your library. Camera frames are processed on-device for barcode recognition and are never stored, transmitted, or shared.</li>
-                <li><strong>Photo Library / Photos:</strong> Used to let you pick a custom cover image for a book from your own photos, and to save or share cover images you choose to export. We only access images you explicitly select &mdash; we never scan or upload your photo library.</li>
-                <li><strong>Notifications:</strong> Used to send optional reading reminders (e.g., to help maintain your reading streak) and, if you opt in, community alerts such as reading party invites. No notification content is shared with third parties.</li>
+                <li><strong>Photo Library / Photos (iOS):</strong> Used to let you pick a custom cover image for a book from your own photos, and to save or share cover images you choose to export. We only access images you explicitly select &mdash; we never scan or upload your photo library.</li>
+                <li><strong>Notifications:</strong> Used to send optional reading reminders (e.g., to help maintain your reading streak), trivia reminders, and, if you opt in, community alerts such as reading party invites. No notification content is shared with third parties.</li>
+                <li><strong>Scheduled / Exact Alarms (Android):</strong> Used to deliver your reading-streak and trivia reminders at the specific times you choose. No data leaves your device for this.</li>
+                <li><strong>Run at Startup / Boot Completed (Android):</strong> Used only to reschedule your local reminders after your device restarts, so your reading reminders continue to fire at the right time.</li>
+                <li><strong>Foreground Service &mdash; Data Sync (Android):</strong> Used to reliably back up and sync your library to your cloud account when you are signed in. Only runs while a sync is in progress.</li>
+                <li><strong>Vibration (Android):</strong> Used for subtle haptic feedback on notifications and in-app interactions. No data is collected.</li>
                 <li><strong>Network / Internet:</strong> Used to fetch book metadata and covers from public APIs (Open Library, Google Books, Wikipedia) and, if you sign in, to sync your library with our secure cloud backup.</li>
             </ul>
 
