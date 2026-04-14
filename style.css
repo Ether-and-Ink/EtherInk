@@ -492,14 +492,20 @@ nav {
   -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
 }
 
+/* Scrollable track — auto-tick and manual swipe/drag both drive scrollLeft. */
 .app-slider {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto; /* smooth: auto would fight the rAF tick */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x; /* horizontal gestures on the carousel, vertical still scrolls the page */
+  scrollbar-width: none; /* Firefox */
 }
+.app-slider::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
 .app-slider-track {
   display: flex;
   gap: 24px;
-  animation: slider-scroll 60s linear infinite;
   width: max-content;
 }
 
@@ -512,15 +518,10 @@ nav {
     0 0 0 1px rgba(255,255,255,0.05),
     0 16px 48px rgba(0,0,0,0.4),
     0 0 30px rgba(124, 58, 237, 0.06);
-}
-
-@keyframes slider-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.app-slider-wrap:hover .app-slider-track {
-  animation-play-state: paused;
+  /* Prevent the browser from "grabbing" the image for drag-select on desktop */
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 /* ── Single Screenshot (Lore Night) ─────────────────────── */
