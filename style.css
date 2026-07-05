@@ -461,6 +461,34 @@ nav {
   border: 1px solid var(--purple-border);
 }
 
+/* "Now Live" variant — green to signal a shipped product. */
+.app-badge-live {
+  background: rgba(52, 211, 153, 0.1);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+/* Call-to-action link (e.g. Play Lore Night). */
+.app-cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 26px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--white);
+  background: var(--purple);
+  border: 1px solid var(--purple-glow);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.app-cta:hover,
+.app-cta:focus-visible {
+  background: var(--purple-glow);
+  transform: translateY(-1px);
+}
+
 .app-showcase-header h3 {
   font-size: 2rem;
   font-weight: 700;
