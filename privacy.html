@@ -31,7 +31,7 @@
             <a href="index.html" class="back-link">&larr; Back to Home</a>
 
             <h2>Privacy Policy</h2>
-            <span class="updated">Last Updated: July 13, 2026</span>
+            <span class="updated">Last Updated: August 15, 2026</span>
 
             <p>Thank you for choosing Ether & Ink! Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your information across our apps and services, including <strong>Bibliomancy</strong> and <strong>Lore Night</strong>.</p>
 
@@ -92,13 +92,21 @@
             <ul>
                 <li><strong>Camera:</strong> Used solely to scan book barcodes (ISBNs) when adding books to your library. Camera frames are processed on-device for barcode recognition and are never stored, transmitted, or shared.</li>
                 <li><strong>Photo Library / Photos:</strong> Used to let you pick a custom cover image for a book from your own photos, and to save or share cover images you choose to export. We only access images you explicitly select &mdash; we never scan or upload your photo library.</li>
-                <li><strong>Notifications:</strong> Used to send optional reading reminders (e.g., to help maintain your reading streak), trivia reminders, and, if you opt in, community alerts such as reading party invites. No notification content is shared with third parties.</li>
+                <li><strong>Notifications:</strong> Used to send optional reading reminders (e.g., to help maintain your reading streak), trivia reminders, and, if you opt in, community alerts such as reading party invites or when another reader cheers on a review or a book you finished. Local reminders stay on your device; community alerts are delivered as push notifications (see &ldquo;Push Notifications&rdquo; below).</li>
                 <li><strong>Scheduled / Exact Alarms:</strong> Used to deliver your reading-streak and trivia reminders at the specific times you choose. No data leaves your device for this.</li>
                 <li><strong>Run at Startup / Boot Completed:</strong> Used only to reschedule your local reminders after your device restarts, so your reading reminders continue to fire at the right time.</li>
                 <li><strong>Background Book Enrichment:</strong> Used to fetch cover images, ISBNs, page counts, genres, and short synopses from public book sources (Open Library, Google Books, Wikipedia) after you add a book to your library, so your newly added titles are fully illustrated even if you navigate away from the Add Book screen. Shows a progress notification while it runs and stops as soon as enrichment is complete. No personal data is transmitted &mdash; only the book title, author, and ISBN are sent to these public sources.</li>
                 <li><strong>Cloud Library Sync:</strong> If you are signed in, your library changes (books, reading progress, notes, quotes, achievements) are uploaded to your secure cloud backup so they can be restored or synced across devices. This runs as a standard background task and does not require a persistent notification.</li>
                 <li><strong>Vibration / Haptics:</strong> Used for subtle haptic feedback on notifications and in-app interactions. No data is collected.</li>
                 <li><strong>Network / Internet:</strong> Used to fetch book metadata and covers from public APIs (Open Library, Google Books, Wikipedia) and, if you sign in, to sync your library with our secure cloud backup.</li>
+            </ul>
+
+            <p><strong>Push Notifications (If Enabled):</strong></p>
+            <p>If you turn on notifications, we register a <strong>push token</strong> for your device so we can deliver community alerts (for example, when another reader cheers, likes, or comments on your review or a book you finished).</p>
+            <ul>
+                <li><strong>Push token:</strong> A device identifier issued by your operating system's push service. It is stored with your account so notifications reach your devices, and is removed when it becomes invalid.</li>
+                <li><strong>Delivery providers:</strong> Notifications are delivered through <strong>Firebase Cloud Messaging</strong> (Google) on both platforms, which on iOS also uses the <strong>Apple Push Notification service</strong> (Apple). The push token and the notification's title and body pass through these providers to reach your device. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
+                <li>You can turn notifications off at any time in your device settings; we then stop sending pushes to that device.</li>
             </ul>
 
             <p><strong>We do NOT collect:</strong></p>
@@ -206,6 +214,9 @@
                 <li><strong>Supabase:</strong> Cloud database and authentication</li>
                 <li><strong>Firebase Analytics:</strong> Anonymous app usage analytics (provided by Google; see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>)</li>
                 <li><strong>Firebase Crashlytics:</strong> Crash reporting and diagnostics (provided by Google; see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>)</li>
+                <li><strong>Firebase Cloud Messaging:</strong> Push notification delivery (provided by Google; see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>)</li>
+                <li><strong>Apple Push Notification service:</strong> Push notification delivery on iOS (provided by Apple; see <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>)</li>
+                <li><strong>Bookshop.org:</strong> Affiliate purchase links; book ISBNs may be sent to verify link availability (no personal data shared)</li>
             </ul>
             <p><strong>Affiliate Disclosure:</strong> If you buy books linked to our site, we may earn a commission from Bookshop.org, whose fees support independent bookshops. Purchases support local bookstores at no extra cost to you.</p>
             <p>We make HTTP requests to Bookshop.org to verify affiliate link availability. This may transmit book ISBN information to Bookshop.org. No personal data is shared in these requests.</p>

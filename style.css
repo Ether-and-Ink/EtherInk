@@ -1038,6 +1038,54 @@ footer {
   color: #ff6b6b;
 }
 
+/* App marketing feature grid */
+.app-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.app-feature {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: left;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.app-feature:hover {
+  border-color: var(--purple-border);
+  transform: translateY(-2px);
+}
+
+.app-feature-icon {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.app-feature h4 {
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.app-feature p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.app-highlights {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-top: 28px;
+}
+
 /* Support page CTA button (link to the homepage feedback form) */
 .legal-page .support-cta {
   display: inline-block;
