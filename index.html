@@ -28,6 +28,7 @@
             <li><a href="#apps">Apps</a></li>
             <li><a href="https://lorenight.net/" target="_blank" rel="noopener">Lore Night</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="support.html">Support</a></li>
             <li><a href="privacy.html">Privacy</a></li>
         </ul>
     </nav>
@@ -270,7 +271,7 @@
             </div>
 
             <!-- Bibliomancy -->
-            <div class="app-showcase">
+            <div class="app-showcase" id="bibliomancy">
                 <div class="app-showcase-header">
                     <div class="app-badge">Coming Soon</div>
                     <h3>Bibliomancy</h3>
@@ -305,7 +306,7 @@
             </div>
 
             <!-- Lore Night -->
-            <div class="app-showcase app-showcase-single">
+            <div class="app-showcase app-showcase-single" id="lore-night">
                 <div class="app-showcase-header">
                     <div class="app-badge app-badge-live">Now Live</div>
                     <h3>Lore Night</h3>
@@ -330,6 +331,43 @@
             <div class="contact-block">
                 <p class="contact-reach">For all inquiries &mdash; general support, press, partnerships, privacy &amp; data requests, or security reports &mdash; reach us at:</p>
                 <a href="mailto:admin@etherink.net" class="contact-email" data-user="admin" data-domain="etherink.net">admin<span class="at-sign">[at]</span>etherink.net</a>
+
+                <form class="feedback-form" id="feedbackForm" novalidate>
+                    <h3 class="feedback-form-title">Send Feedback</h3>
+                    <p class="feedback-form-sub">Found a bug or have an idea? Send it straight to us &mdash; this opens your email app with the message ready to go.</p>
+
+                    <div class="feedback-row">
+                        <label for="fbType">Type</label>
+                        <select id="fbType" name="type" required>
+                            <option value="Bug Report">&#128027; Bug Report</option>
+                            <option value="Improvement" selected>&#128161; Improvement</option>
+                            <option value="General Issue">&#10067; General Issue</option>
+                            <option value="Error Report">&#9888;&#65039; Error Report</option>
+                        </select>
+                    </div>
+
+                    <div class="feedback-row">
+                        <label for="fbTitle">Title</label>
+                        <input id="fbTitle" name="title" type="text" maxlength="120" placeholder="A short summary" required>
+                    </div>
+
+                    <div class="feedback-row">
+                        <label for="fbMessage">Message</label>
+                        <textarea id="fbMessage" name="description" rows="5" maxlength="2000" placeholder="Tell us what happened, or what you'd like to see&hellip;" required></textarea>
+                    </div>
+
+                    <div class="feedback-row">
+                        <label for="fbEmail">Your email <span class="feedback-optional">(optional &mdash; so we can reply)</span></label>
+                        <input id="fbEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+                    </div>
+
+                    <!-- Honeypot: hidden from people, tempting to bots. Submissions with this filled are ignored. -->
+                    <input type="text" name="website" id="fbWebsite" class="feedback-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <button type="submit" class="feedback-submit">Send Feedback</button>
+                    <p class="feedback-status" id="fbStatus" role="status" aria-live="polite"></p>
+                </form>
+
                 <div class="contact-details">
                     <div class="contact-detail">
                         <h4>Legal</h4>
@@ -408,6 +446,7 @@
                 <li><a href="#apps">Apps</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#security">Security</a></li>
+                <li><a href="support.html">Support</a></li>
                 <li><a href="privacy.html">Privacy Policy</a></li>
                 <li><a href="terms.html">Terms of Service</a></li>
             </ul>

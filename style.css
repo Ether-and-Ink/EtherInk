@@ -914,3 +914,126 @@ footer {
     margin-top: 20px;
   }
 }
+
+/* Deep-link targets: offset the fixed nav so #bibliomancy / #lore-night
+   (and ?app= scroll) don't land under the navbar. */
+#apps,
+#bibliomancy,
+#lore-night,
+#about,
+#contact {
+  scroll-margin-top: 96px;
+}
+
+/* Feedback form */
+.feedback-form {
+  max-width: 620px;
+  margin: 0 auto 56px;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.feedback-form-title {
+  font-size: 1.35rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.feedback-form-sub {
+  color: var(--gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.feedback-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.feedback-row label {
+  color: var(--light);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.feedback-optional {
+  color: var(--gray);
+  font-weight: 400;
+}
+
+.feedback-form select,
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--white);
+  font: inherit;
+  font-size: 1rem;
+  padding: 12px 14px;
+  transition: border-color 0.2s;
+}
+
+.feedback-form select:focus,
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  outline: none;
+  border-color: var(--purple-glow);
+}
+
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Honeypot — visually hidden but still submittable by bots */
+.feedback-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.feedback-submit {
+  width: 100%;
+  margin-top: 6px;
+  background: var(--purple);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.feedback-submit:hover {
+  background: var(--purple-glow);
+}
+
+.feedback-submit:active {
+  transform: translateY(1px);
+}
+
+.feedback-status {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.feedback-status.ok {
+  color: var(--purple-glow);
+}
+
+.feedback-status.error {
+  color: #ff6b6b;
+}
