@@ -1045,7 +1045,9 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   max-width: 960px;
-  margin: 0 auto;
+  /* Clear the slider above — its cover art carries a deep drop-shadow that
+     otherwise crowds the first row of feature cards. */
+  margin: 56px auto 0;
 }
 
 .app-feature {
