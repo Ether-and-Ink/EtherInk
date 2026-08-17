@@ -48,7 +48,7 @@
             </ul>
 
             <p><strong>Cloud Backup (Authenticated Users Only):</strong></p>
-            <p>When you sign in with Google or email, your personal library data is backed up to enable cross-device sync and restore. This includes your books, reading logs, achievements, familiars, quotes, journal entries, and reading goals. This backup is opt-in &mdash; it only happens when you sign in. Anonymous users keep all data local.</p>
+            <p>When you sign in with Google or email, your personal library data is backed up to enable cross-device sync and restore. This includes your books, reading logs, achievements, familiars, quotes, and reading goals. This backup is opt-in; it only happens when you sign in. Anonymous users keep all data local. <strong>Your journal entries are handled separately: we do not store them by default.</strong> Even when signed in, your reading journal stays only on your device unless you explicitly turn on "Back up my journal" (OFF by default). We simply give you the option to sync your journal privately across your own devices if you want it.</p>
 
             <p><strong>Authentication Data (When You Sign In):</strong></p>
             <ul>
@@ -98,10 +98,10 @@
                 <li><strong>Notifications:</strong> Used to send optional reading reminders (e.g., to help maintain your reading streak), trivia reminders, and, if you opt in, community alerts such as reading party invites or when another reader cheers on a review or a book you finished. Local reminders stay on your device; community alerts are delivered as push notifications (see &ldquo;Push Notifications&rdquo; below).</li>
                 <li><strong>Scheduled / Exact Alarms:</strong> Used to deliver your reading-streak and trivia reminders at the specific times you choose. No data leaves your device for this.</li>
                 <li><strong>Run at Startup / Boot Completed:</strong> Used only to reschedule your local reminders after your device restarts, so your reading reminders continue to fire at the right time.</li>
-                <li><strong>Background Book Enrichment:</strong> Used to fetch cover images, ISBNs, page counts, genres, and short synopses from public book sources (Open Library, Google Books, Wikipedia) after you add a book to your library, so your newly added titles are fully illustrated even if you navigate away from the Add Book screen. Shows a progress notification while it runs and stops as soon as enrichment is complete. No personal data is transmitted &mdash; only the book title, author, and ISBN are sent to these public sources.</li>
+                <li><strong>Background Book Enrichment:</strong> Used to fetch cover images, ISBNs, page counts, genres, and short synopses from public book sources (Open Library, Google Books, Wikipedia, Inventaire) after you add a book to your library, so your newly added titles are fully illustrated even if you navigate away from the Add Book screen. Shows a progress notification while it runs and stops as soon as enrichment is complete. No personal data is transmitted &mdash; only the book title, author, and ISBN are sent to these public sources.</li>
                 <li><strong>Cloud Library Sync:</strong> If you are signed in, your library changes (books, reading progress, notes, quotes, achievements) are uploaded to your secure cloud backup so they can be restored or synced across devices. This runs as a standard background task and does not require a persistent notification.</li>
                 <li><strong>Vibration / Haptics:</strong> Used for subtle haptic feedback on notifications and in-app interactions. No data is collected.</li>
-                <li><strong>Network / Internet:</strong> Used to fetch book metadata and covers from public APIs (Open Library, Google Books, Wikipedia) and, if you sign in, to sync your library with our secure cloud backup.</li>
+                <li><strong>Network / Internet:</strong> Used to fetch book metadata and covers from public APIs (Open Library, Google Books, Wikipedia, Inventaire) and, if you sign in, to sync your library with our secure cloud backup.</li>
             </ul>
 
             <p><strong>Push Notifications (If Enabled):</strong></p>
