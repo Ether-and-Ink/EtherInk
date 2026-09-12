@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Returning to Bibliomancy</title>
+
+<!--
+  The magic-link return page.
+
+  WHY THIS EXISTS. A magic link has to be https, because Supabase verifies the
+  token server-side. That verification then has to hand off to the app through
+  a custom URL scheme, and iOS shows a permission prompt for those which cannot
+  be suppressed. So there is always a browser moment. This page is that moment,
+  dressed as Bibliomancy instead of as a blank white redirect, so the prompt
+  reads as part of signing in rather than as something going wrong.
+
+  SECURITY NOTES, all of which matter here more than usual:
+
+  1. The session tokens arrive in the URL FRAGMENT. Browsers never send a
+     fragment to the server, so the tokens never reach GitHub Pages logs, any
+     CDN, or any analytics. Keep it that way: never copy the fragment into a
+     query string, an image src, or a fetch.
+
+  2. There is NO third-party JavaScript on this page, and there must never be.
+     Any script here can read the fragment, which means it can read a live
+     session. The only external resource is a Google Fonts stylesheet, and a
+     stylesheet cannot read the fragment.
+
+  3. The target scheme is ALLOWLISTED below. It arrives as ?app=, because the
+     client knows its own scheme and this page should not guess from the user
+     agent. Without the allowlist this page would be an open redirect that
+     forwards live credentials to whatever scheme an attacker put in the link.
+
+  4. The fragment is scrubbed from the address bar after the hand-off, so a
+     live token is not left sitting in browser history.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --gold: #d4a03d;
+    --gold-dim: rgba(212, 160, 61, 0.35);
+    --cream: #f0e6d2;
+    --faded: #9c9186;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 380px; width: 100%; }
+
+  .sigil {
+    width: 76px; height: 76px;
+    margin: 0 auto 28px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .sigil::before {
+    content: "";
+    position: absolute; inset: -9px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    border-top-color: var(--gold);
+    animation: turn 1.9s linear infinite;
+  }
+  .sigil span { font-size: 30px; line-height: 1; }
+  @keyframes turn { to { transform: rotate(360deg); } }
+
+  h1 {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+  p { font-size: 17px; margin: 0 0 10px; }
+  .sub { font-size: 15px; color: var(--faded); }
+
+  .btn {
+    display: inline-block;
+    margin-top: 26px;
+    padding: 13px 30px;
+    background: var(--gold);
+    color: #14110b;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+  }
+  .rule {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    margin: 30px 0 18px;
+  }
+  .foot { font-size: 13px; color: var(--faded); }
+  .foot a { color: var(--gold); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="sigil" aria-hidden="true"><span>📖</span></div>
+
+  <div id="working">
+    <h1>Opening Bibliomancy</h1>
+    <p>Your sign-in is verified.</p>
+    <p class="sub">Your browser will ask permission to open the app. Choose Open and you are in.</p>
+    <a class="btn" id="manual" href="#">Open Bibliomancy</a>
+  </div>
+
+  <div id="failed" hidden>
+    <h1>This link has expired</h1>
+    <p id="failmsg">Sign-in links work once and last about an hour.</p>
+    <p class="sub">Open Bibliomancy and ask for a new one.</p>
+  </div>
+
+  <div class="rule"></div>
+  <p class="foot">Bibliomancy, by <a href="https://etherink.net">Ether Ink</a></p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // Only these may be opened. Without this allowlist the page would forward a
+  // live session to any scheme an attacker put in the link.
+  var ALLOWED = {
+    "bibliomancy": true,                  // iOS (legacy, unnamespaced)
+    "net.etherink.bibliomancy": true      // Android, and iOS once namespaced
+  };
+  var DEFAULT_APP = "bibliomancy";
+
+  var params = new URLSearchParams(window.location.search);
+  var app = params.get("app");
+  if (!app || !Object.prototype.hasOwnProperty.call(ALLOWED, app)) app = DEFAULT_APP;
+
+  var hash = window.location.hash || "";
+
+  // Supabase reports a dead link on the query string or in the fragment.
+  var err = params.get("error_description") || params.get("error");
+  if (!err && hash.indexOf("error") !== -1) {
+    var hp = new URLSearchParams(hash.replace(/^#/, ""));
+    err = hp.get("error_description") || hp.get("error");
+  }
+
+  var hasToken = hash.indexOf("access_token=") !== -1;
+
+  if (err || !hasToken) {
+    document.getElementById("working").hidden = true;
+    var failed = document.getElementById("failed");
+    failed.hidden = false;
+    if (err) document.getElementById("failmsg").textContent = decodeURIComponent(String(err).replace(/\+/g, " "));
+    return;
+  }
+
+  var target = app + "://auth-callback" + hash;
+  document.getElementById("manual").setAttribute("href", target);
+
+  // Hand off immediately. The prompt the user sees belongs to iOS, not to us.
+  window.location.href = target;
+
+  // Then take the tokens out of the address bar so a live session is not left
+  // in history. Delayed, because scrubbing before the hand-off lands would
+  // strip the very fragment we are forwarding.
+  setTimeout(function () {
+    try {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    } catch (e) { /* history is not writable in some in-app browsers; harmless */ }
+  }, 2500);
+})();
+</script>
+</body>
+</html>
