@@ -31,7 +31,7 @@
             <a href="index.html" class="back-link">&larr; Back to Home</a>
 
             <h2>Privacy Policy</h2>
-            <span class="updated">Last Updated: August 15, 2026</span>
+            <span class="updated">Last Updated: September 29, 2026</span>
 
             <p>Thank you for choosing Ether & Ink! Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your information across our apps and services, including <strong>Bibliomancy</strong> and <strong>Lore Night</strong>.</p>
 
@@ -132,6 +132,10 @@
             </ul>
             <p>This data is collected in aggregate and is not linked to your personal identity. For more information, see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
             <p><strong>Platform note:</strong> Firebase Analytics and Crashlytics are used in the <strong>Android</strong> app. The <strong>iOS</strong> app does not include a third-party analytics or crash-reporting SDK &mdash; analytics collection is disabled there, and Firebase is included only to deliver push notifications.</p>
+
+            <p><strong>Our own product-analytics log:</strong> Separately from Firebase, we record app activity events &mdash; screens opened, books added, started or finished, trivia and quest activity &mdash; to a server-side log we operate ourselves. If you are signed in, these events are attached to your account identifier so we can tell one reader's experience from another's when something goes wrong; signed out, they are recorded without it. We use them only to understand how the app is used and to fix it, and we never sell them or share them with other readers.</p>
+
+            <p><strong>Sync health check:</strong> Each time the app syncs, it reports how many books, reading logs and reviews your device is holding, along with your app version and whether the last sync succeeded. We store counts only &mdash; never titles, never what you are reading. This exists because a library that fails to upload is otherwise invisible to us: our servers can only see what arrived, so without your device telling us what it holds we cannot tell a reader who owns two books from one who owns three hundred and lost them.</p>
 
             <p><strong>Anonymous by Design:</strong> Our apps use randomly generated anonymous identifiers instead of traditional accounts for community features. Your identity on leaderboards and reviews is simply a random string (UUID) plus a wizard name you choose. This identifier is not derived from any device hardware or personal information.</p>
 
