@@ -31,7 +31,7 @@
             <a href="index.html" class="back-link">&larr; Back to Home</a>
 
             <h2>Privacy Policy</h2>
-            <span class="updated">Last Updated: October 17, 2026</span>
+            <span class="updated">Last Updated: October 18, 2026</span>
 
             <p>Thank you for choosing Ether & Ink! Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your information across our apps and services, including <strong>Bibliomancy</strong> and <strong>Lore Night</strong>.</p>
 
@@ -60,6 +60,7 @@
             <ul>
                 <li>Wizard/Wizardess display name (chosen by you)</li>
                 <li>Reading statistics for leaderboards</li>
+                <li>Replies: short replies you write, as a review's author, to comments on your review (see &ldquo;Replies to Comments on Your Reviews&rdquo; below)</li>
                 <li>Anonymous identifier (randomly generated, not linked to your device or identity)</li>
             </ul>
 
@@ -81,6 +82,17 @@
             <p><strong>Feedback You Send (Optional):</strong></p>
             <p>When you send feedback, a bug report, or a feature request from within the app, we store what you write (the category, title, and message) so we can read and act on it. If you are signed in, your account identifier and wizard name are attached so we can follow up; if you send feedback while signed out, it is stored without them. Feedback is used only to improve the apps and is never shared with other users.</p>
 
+            <p><strong>Replies to Comments on Your Reviews (Bibliomancy, Optional):</strong></p>
+            <p>Other readers can leave a comment on your review by picking one of our pre-written phrases. As the review's author, you can answer a comment with a short reply of your own, up to 280 characters.</p>
+            <ul>
+                <li><strong>What we store:</strong> The text of your reply, which comment and review it answers, your account identifier, and the reply's moderation status.</li>
+                <li><strong>Moderation:</strong> Each reply is checked on your device by a profanity filter, then by an automated moderation service (Google Gemini), before other readers can see it. Only the reply text and the book's title are sent to Google Gemini, never your name, email or account details.</li>
+                <li><strong>Human review:</strong> Replies that automated moderation holds or flags are reviewed by a person (the developer). An AI model (Anthropic Claude) may help with that review. Only the reply text, the comment it answers and the book's title are sent to Anthropic, never your name, email or account details. A person makes every decision.</li>
+                <li><strong>Who sees it:</strong> Once approved, your reply is shown with your wizard name to readers who view the review. The reader whose comment you answered gets an inbox note and, if they turned on notifications, a push notification.</li>
+                <li><strong>Reports and blocks:</strong> Any reader can report a reply or block its author. A report stores the reason you chose, your account identifier, and a copy of the reported reply so a person can review it even if the reply is later deleted. Replies from readers you block are hidden from you.</li>
+                <li><strong>Deleting:</strong> A reply is deleted when you delete it or delete the review it belongs to.</li>
+            </ul>
+
             <p><strong>Reading Parties (Optional):</strong></p>
             <ul>
                 <li>Party membership and reading progress are visible to party members</li>
@@ -95,7 +107,7 @@
             <ul>
                 <li><strong>Camera:</strong> Used solely to scan book barcodes (ISBNs) when adding books to your library. Camera frames are processed on-device for barcode recognition and are never stored, transmitted, or shared.</li>
                 <li><strong>Photo Library / Photos:</strong> Used to let you pick a custom cover image for a book from your own photos, and to save or share cover images you choose to export. We only access images you explicitly select &mdash; we never scan or upload your photo library.</li>
-                <li><strong>Notifications:</strong> Used to send optional reading reminders (e.g., to help maintain your reading streak), trivia reminders, and, if you opt in, community alerts such as reading party invites or when another reader cheers on a review or a book you finished. Local reminders stay on your device; community alerts are delivered as push notifications (see &ldquo;Push Notifications&rdquo; below).</li>
+                <li><strong>Notifications:</strong> Used to send optional reading reminders (e.g., to help maintain your reading streak), trivia reminders, and, if you opt in, community alerts such as reading party invites, when another reader cheers on a review or a book you finished, or when a review&rsquo;s author replies to your comment. Local reminders stay on your device; community alerts are delivered as push notifications (see &ldquo;Push Notifications&rdquo; below).</li>
                 <li><strong>Scheduled / Exact Alarms:</strong> Used to deliver your reading-streak and trivia reminders at the specific times you choose. No data leaves your device for this.</li>
                 <li><strong>Run at Startup / Boot Completed:</strong> Used only to reschedule your local reminders after your device restarts, so your reading reminders continue to fire at the right time.</li>
                 <li><strong>Background Book Enrichment:</strong> Used to fetch cover images, ISBNs, page counts, genres, and short synopses from public book sources (Open Library, Google Books, Wikipedia, Inventaire) after you add a book to your library, so your newly added titles are fully illustrated even if you navigate away from the Add Book screen. Shows a progress notification while it runs and stops as soon as enrichment is complete. No personal data is transmitted &mdash; only the book title, author, and ISBN are sent to these public sources.</li>
@@ -105,7 +117,7 @@
             </ul>
 
             <p><strong>Push Notifications (If Enabled):</strong></p>
-            <p>If you turn on notifications, we register a <strong>push token</strong> for your device so we can deliver community alerts (for example, when another reader cheers, likes, or comments on your review or a book you finished).</p>
+            <p>If you turn on notifications, we register a <strong>push token</strong> for your device so we can deliver community alerts (for example, when another reader cheers, likes, or comments on your review or a book you finished, or when a review&rsquo;s author replies to your comment).</p>
             <ul>
                 <li><strong>Push token:</strong> A device identifier issued by your operating system's push service. It is stored with your account so notifications reach your devices, and is removed when it becomes invalid.</li>
                 <li><strong>Delivery providers:</strong> Notifications are delivered through <strong>Firebase Cloud Messaging</strong> (Google) on both platforms, which on iOS also uses the <strong>Apple Push Notification service</strong> (Apple). The push token and the notification's title and body pass through these providers to reach your device. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
@@ -158,6 +170,8 @@
                 <li>To display your chosen name on public leaderboards (optional)</li>
                 <li>To show community reading activity (e.g., "12 people are reading this book")</li>
                 <li>To display community-voted book elements/tags</li>
+                <li>To show replies you write to comments on your reviews, and to tell the reader you answered that you replied</li>
+                <li>To moderate replies, review reports, and keep the community safe</li>
                 <li>To improve app functionality and user experience</li>
             </ul>
 
@@ -177,11 +191,12 @@
             <p><strong>We do NOT sell your personal data. Ever.</strong></p>
             <p>Your data may be shared only in these circumstances:</p>
             <ul>
-                <li><strong>With other users:</strong> Only your chosen display name and reading stats on public leaderboards</li>
+                <li><strong>With other users:</strong> Your chosen display name and reading stats on public leaderboards, and replies you post once they pass moderation</li>
                 <li><strong>Community catalog:</strong> Anonymous, aggregated counts &mdash; never linked to your identity</li>
                 <li><strong>Legal requirements:</strong> If required by law or valid legal process</li>
                 <li><strong>With your consent:</strong> If you explicitly choose to share</li>
                 <li><strong>Service providers:</strong> Supabase (database and authentication hosting) under their privacy agreements</li>
+                <li><strong>Moderation providers:</strong> Google (Gemini) and Anthropic (Claude) receive the text of replies for moderation, as described above. They never receive your name, email or account details.</li>
             </ul>
 
             <h3>6. Promotions and Advertising</h3>
@@ -224,6 +239,8 @@
                 <li><strong>Google Books API:</strong> Book information, trending books, and new releases (no personal data shared). Cover images load directly from Google&rsquo;s servers. We may store links to Google&rsquo;s cover images (not the images themselves) so books show a cover. We do not add descriptions from Google Books to our shared catalog; they stay on your device and, if you sign in, in your own library backup.</li>
                 <li><strong>Wikipedia API:</strong> Book descriptions (no personal data shared). Wikipedia descriptions may be stored in our shared book catalog so other readers can see them. They are credited to Wikipedia and used under CC BY-SA 4.0.</li>
                 <li><strong>Open Trivia Database:</strong> Trivia questions (no personal data shared)</li>
+                <li><strong>Google Gemini API:</strong> Automated moderation of replies you write to comments on your reviews. Only the reply text and the book's title are sent, never your name, email or account details (provided by Google; see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>)</li>
+                <li><strong>Anthropic Claude API:</strong> Helps a person (the developer) review replies that automated moderation held or flagged. Only the reply text, the comment it answers and the book's title are sent, never your name, email or account details. A person makes every decision (provided by Anthropic; see <a href="https://www.anthropic.com/legal/privacy">Anthropic's Privacy Policy</a>)</li>
                 <li><strong>Supabase:</strong> Cloud database and authentication</li>
                 <li><strong>Firebase Analytics:</strong> Anonymous app usage analytics (provided by Google; see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>)</li>
                 <li><strong>Firebase Crashlytics:</strong> Crash reporting and diagnostics (provided by Google; see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>)</li>
@@ -272,7 +289,7 @@
                 <li><strong>Local data:</strong> Retained until you delete it or uninstall the app</li>
                 <li><strong>Cloud-synced personal data:</strong> Retained until you delete it via Settings or request deletion</li>
                 <li><strong>Authentication data:</strong> Retained until you delete your account</li>
-                <li><strong>Community data:</strong> Retained until you request deletion or 2 years of inactivity</li>
+                <li><strong>Community data (reviews, replies, leaderboard):</strong> Retained until you request deletion or 2 years of inactivity. A reply is also deleted as soon as you delete it or the review it belongs to.</li>
             </ul>
 
             <h3 id="data-deletion">11. Account &amp; Data Deletion</h3>
